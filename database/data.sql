@@ -145,10 +145,10 @@ DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
   `uid` bigint(19) unsigned NOT NULL COMMENT 'uid',
   `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
-  `nickname` varchar(8) NOT NULL DEFAULT '' COMMENT '昵称',
-  `department` varchar(8) NOT NULL DEFAULT '' COMMENT '部门',
-  `position` varchar(8) NOT NULL DEFAULT '' COMMENT '职位',
-  `name` varchar(8) NOT NULL DEFAULT '' COMMENT '姓名',
+  `nickname` varchar(16) NOT NULL DEFAULT '' COMMENT '昵称',
+  `department` varchar(16) NOT NULL DEFAULT '' COMMENT '部门',
+  `position` varchar(16) NOT NULL DEFAULT '' COMMENT '职位',
+  `name` varchar(16) NOT NULL DEFAULT '' COMMENT '姓名',
   `gender` enum('男','女','') NOT NULL DEFAULT '' COMMENT '性别',
   `birthday` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '生日',
   `img` varchar(64) NOT NULL DEFAULT '' COMMENT '头像',
@@ -157,6 +157,22 @@ CREATE TABLE `user_info` (
 INSERT INTO `user_info` (`uid`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`) VALUES
 (1,	0,	'WebMIS',  '信息部', '系统开发',	'管理员',	'男',	0,	''),
 (2,	0,  'User', '信息部',	'测试',	'会员',	'男',	0,	'');
+
+DROP TABLE IF EXISTS `user_msg`;
+CREATE TABLE `user_msg` (
+  `id` bigint(19) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` enum('0','1') NOT NULL DEFAULT '0' COMMENT '0消息,1其他',
+  `gid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '0普通消息 1系统消息',
+  `uid` varchar(18) NOT NULL DEFAULT '0' COMMENT 'UID',
+  `fid` varchar(16) NOT NULL DEFAULT '0' COMMENT '发送者ID',
+  `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '发布时间',
+  `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `is_new` text NOT NULL DEFAULT '' COMMENT '标记阅读',
+  `is_del` text NOT NULL DEFAULT '' COMMENT '标记删除',
+  `title` varchar(16) NOT NULL DEFAULT '' COMMENT '标题',
+  `content` varchar(300) NOT NULL DEFAULT '' COMMENT '内容',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='用户消息';
 
 
 DROP TABLE IF EXISTS `web_news`;
