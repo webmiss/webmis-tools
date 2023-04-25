@@ -152,6 +152,7 @@ CREATE TABLE `user_info` (
   `gender` enum('男','女','') NOT NULL DEFAULT '' COMMENT '性别',
   `birthday` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '生日',
   `img` varchar(64) NOT NULL DEFAULT '' COMMENT '头像',
+  `remark` varchar(128) NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户信息';
 INSERT INTO `user_info` (`uid`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`) VALUES
