@@ -20,22 +20,23 @@ CREATE TABLE `sys_menus` (
   `url` varchar(32) DEFAULT '' COMMENT '地址',
   `controller` varchar(32) DEFAULT '',
   `action` text DEFAULT '',
+  `remark` varchar(128) DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统菜单';
-INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `ctime`, `utime`, `sort`, `url`, `controller`, `action`) VALUES
-(1,	0,	'首页', '',	'icons icon_home',	0,	0,	0,	'',	'',	''),
-(2,	0,	'网站', '',	'icons icon_web',	0,	0,	0,	'',	'',	''),
-(3,	0,	'系统', '',	'icons icon_system',	0,	0,	0,	'',	'',	''),
-(4,	2,	'小程序', '',	'',	0,	0,	0,	'',	'',	''),
-(5,	3,	'系统管理', '',	'',	0,	0,	0,	'',	'',	''),
-(6,	3,	'基础数据', '',	'',	0,	0,	0,	'',	'',	''),
-(7,	5,	'网站目录', 'WangZhanMuLu',	'',	0,	0,	0,	'/SysFileManage',	'/admin/sys_file',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"新建文件夹\",\"action\":\"mkdir\",\"perm\":2},{\"name\":\"重命名\",\"action\":\"rename\",\"perm\":4},{\"name\":\"上传\",\"action\":\"upload\",\"perm\":8},{\"name\":\"下载\",\"action\":\"down\",\"perm\":16},{\"name\":\"删除\",\"action\":\"remove\",\"perm\":32}]'),
-(8,	5,	'系统用户', 'XiTongZhangHu',	'',	0,	0,	0,	'/SysUser',	'/admin/sys_user',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":64},{\"name\":\"个人信息\",\"action\":\"info\",\"perm\":128}]'),
-(9,	5,	'系统角色', 'XiTongJiaoSe',	'',	0,	0,	0,	'/SysRole',	'/admin/sys_role',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":32}]'),
-(10,	5,	'系统菜单', 'XiTongCaiDan',	'',	0,	0,	0,	'/SysMenus',	'/admin/sys_menus',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":32}]'),
-(11,	6,	'静态页面', 'JingTaiYeMian',	'',	0,	0,	0,	'/MHtml',	'/admin/m_html',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]'),
-(12,	4,	'轮播图', 'LunBoTu',	'',	0,	0,	0,	'/MBanner',	'/admin/m_banner',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]'),
-(13,	4,	'意见反馈', 'YiJianFanKui',	'',	0,	0,	0,	'/MSuggest',	'/admin/m_suggest',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"删除\",\"action\":\"del\",\"perm\":2}]');
+INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `ctime`, `utime`, `sort`, `url`, `controller`, `action`, `remark`) VALUES
+(1,	0,	'首页', '',	'icons icon_home',	0,	0,	0,	'',	'',	'',	''),
+(2,	0,	'网站', '',	'icons icon_web',	0,	0,	0,	'',	'',	'',	''),
+(3,	0,	'系统', '',	'icons icon_system',	0,	0,	0,	'',	'',	'',	''),
+(4,	2,	'小程序', '',	'',	0,	0,	0,	'',	'',	'',	''),
+(5,	3,	'系统管理', '',	'',	0,	0,	0,	'',	'',	'',	''),
+(6,	3,	'基础数据', '',	'',	0,	0,	0,	'',	'',	'',	''),
+(7,	5,	'网站目录', 'WangZhanMuLu',	'',	0,	0,	0,	'/SysFileManage',	'/admin/sys_file',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"新建文件夹\",\"action\":\"mkdir\",\"perm\":2},{\"name\":\"重命名\",\"action\":\"rename\",\"perm\":4},{\"name\":\"上传\",\"action\":\"upload\",\"perm\":8},{\"name\":\"下载\",\"action\":\"down\",\"perm\":16},{\"name\":\"删除\",\"action\":\"remove\",\"perm\":32}]',	''),
+(8,	5,	'系统用户', 'XiTongZhangHu',	'',	0,	0,	0,	'/SysUser',	'/admin/sys_user',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
+(9,	5,	'系统角色', 'XiTongJiaoSe',	'',	0,	0,	0,	'/SysRole',	'/admin/sys_role',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":32}]',	''),
+(10,	5,	'系统菜单', 'XiTongCaiDan',	'',	0,	0,	0,	'/SysMenus',	'/admin/sys_menus',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8}]',	''),
+(11,	6,	'静态页面', 'JingTaiYeMian',	'',	0,	0,	0,	'/MHtml',	'/admin/m_html',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]',	''),
+(12,	4,	'轮播图', 'LunBoTu',	'',	0,	0,	0,	'/MBanner',	'/admin/m_banner',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]',	''),
+(13,	4,	'意见反馈', 'YiJianFanKui',	'',	0,	0,	0,	'/MSuggest',	'/admin/m_suggest',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"删除\",\"action\":\"del\",\"perm\":2}]',	'');
 
 
 DROP TABLE IF EXISTS `sys_perm`;
@@ -47,7 +48,7 @@ CREATE TABLE `sys_perm` (
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='权限表';
 INSERT INTO `sys_perm` (`uid`, `utime`, `role`, `perm`) VALUES
-(1,	1646643212,	'',	'1:0 2:0 3:0 4:0 5:0 6:0 7:63 8:255 9:64 10:63 11:63 12:63 13:3'),
+(1,	1646643212,	'',	'1:0 2:0 3:0 4:0 5:0 6:0 7:15 8:31 9:15 10:15 11:63 12:63 13:3'),
 (2,	0,	'1',	'');
 
 
