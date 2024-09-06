@@ -56,13 +56,15 @@ DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(16) NOT NULL COMMENT '角色名称',
+   `status` tinyint(1) unsigned NOT NULL DEFAULT 1 COMMENT '状态: 0禁用,1正常',
   `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '创建时间',
   `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `remark` varchar(128) NOT NULL DEFAULT '' COMMENT '备注',
   `perm` text DEFAULT NULL COMMENT '权限值',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统角色';
-INSERT INTO `sys_role` (`id`, `name`, `ctime`, `utime`, `perm`) VALUES
-(1,	'基础权限',	0,	0,	'1:0 2:0 4:0 12:1 13:1');
+INSERT INTO `sys_role` (`id`, `name`, `status`, `ctime`, `utime`, `remark`, `perm`) VALUES
+(1,	'基础权限',	1,	0,	0,	'',	'1:0 2:0 4:0 12:1 13:1');
 
 
 DROP TABLE IF EXISTS `test`;
@@ -109,9 +111,9 @@ CREATE TABLE `user_info` (
   `remark` varchar(128) NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户信息';
-INSERT INTO `user_info` (`uid`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`) VALUES
-(1,	0,	'WebMIS',  '信息部', '系统开发',	'管理员',	'男',	0,	''),
-(2,	0,  'User', '信息部',	'测试',	'会员',	'男',	0,	'');
+INSERT INTO `user_info` (`uid`, `type`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`) VALUES
+(1,	1,	0,	'WebMIS',  '信息部', '系统开发',	'管理员',	'男',	0,	''),
+(2,	0,	0,  'User', '信息部',	'测试',	'会员',	'男',	0,	'');
 
 DROP TABLE IF EXISTS `user_msg`;
 CREATE TABLE `user_msg` (
