@@ -79,7 +79,7 @@ CREATE TABLE `test` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` bigint(19) unsigned NOT NULL COMMENT 'ID',
+  `id` bigint(19) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `uname` varchar(16) NOT NULL DEFAULT '' COMMENT '用户名',
   `tel` varchar(11) NOT NULL DEFAULT '' COMMENT '手机号码',
   `email` varchar(32) NOT NULL DEFAULT '' COMMENT '邮箱',
