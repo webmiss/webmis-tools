@@ -22,7 +22,7 @@ CREATE TABLE `sys_menus` (
   `action` text DEFAULT '',
   `remark` varchar(128) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='系统菜单';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统菜单';
 
 INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `ctime`, `utime`, `sort`, `url`, `controller`, `action`, `remark`) VALUES
 (1,	0,	'首页',	'',	'icons icon_home',	0,	0,	0,	'',	'',	'',	''),
@@ -46,7 +46,7 @@ CREATE TABLE `sys_perm` (
   `role` varchar(6) DEFAULT '' COMMENT '角色权限',
   `perm` text DEFAULT '' COMMENT '专属权限',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='权限表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='权限表';
 
 INSERT INTO `sys_perm` (`uid`, `utime`, `role`, `perm`) VALUES
 (1,	1726734456,	'',	'1:0 2:0 3:0 4:0 5:0 6:0 7:63 8:31 9:31 10:15 11:27 12:63 13:3'),
@@ -62,7 +62,7 @@ CREATE TABLE `sys_role` (
   `remark` varchar(128) NOT NULL DEFAULT '' COMMENT '备注',
   `perm` text DEFAULT NULL COMMENT '权限值',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='系统角色';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统角色';
 
 INSERT INTO `sys_role` (`id`, `name`, `status`, `ctime`, `utime`, `remark`, `perm`) VALUES
 (1,	'基础权限',	1,	0,	1726458718,	'',	'1:0 2:0 4:0 12:1 13:1');
@@ -79,10 +79,10 @@ CREATE TABLE `user` (
   `ltime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '登录时间',
   `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='用户帐号';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户帐号';
 
 INSERT INTO `user` (`id`, `uname`, `tel`, `email`, `password`, `status`, `rtime`, `ltime`, `utime`) VALUES
-(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1726800116,	1726734456),
+(1,	'admin',	'',	'klingsoul@163.com',	'8d37796cd6857b5b2d6721b2d25829ee',	1,	0,	1726822229,	1726734456),
 (2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	0,	0,	0,	1726800383);
 
 DROP TABLE IF EXISTS `user_info`;
@@ -100,7 +100,7 @@ CREATE TABLE `user_info` (
   `signature` varchar(300) NOT NULL DEFAULT '' COMMENT '个性签名',
   `remark` varchar(128) NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='用户信息';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户信息';
 
 INSERT INTO `user_info` (`uid`, `type`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`, `signature`, `remark`) VALUES
 (1,	1,	1726734456,	'WebMIS',	'信息部',	'系统开发',	'管理员',	'男',	0,	'',	'',	''),
@@ -120,24 +120,24 @@ CREATE TABLE `user_msg` (
   `title` varchar(16) NOT NULL DEFAULT '' COMMENT '标题',
   `content` varchar(300) NOT NULL DEFAULT '' COMMENT '内容',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci COMMENT='用户消息';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户消息';
 
 
 DROP TABLE IF EXISTS `web_html`;
 CREATE TABLE `web_html` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `type` tinyint(1) unsigned NOT NULL COMMENT '类型: 0PC版, 1手机版',
-  `title` varchar(32) NOT NULL COMMENT '标题',
-  `name` varchar(16) NOT NULL COMMENT '名称',
+  `title` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '标题',
+  `name` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '名称',
   `status` tinyint(1) unsigned NOT NULL DEFAULT 1 COMMENT '1正常,0禁用',
   `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '创建时间',
   `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
-  `remark` varchar(129) NOT NULL DEFAULT '' COMMENT '备注',
-  `content` text NOT NULL DEFAULT '' COMMENT '内容',
+  `remark` varchar(129) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '内容',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `web_html` (`id`, `type`, `title`, `name`, `status`, `ctime`, `utime`, `remark`, `content`) VALUES
 (1,	1,	'服务协议',	'm_service',	1,	1726819724,	1726821152,	'手机、小程序',	'<p>服务协议</p>');
 
--- 2024-09-20 08:45:57
+-- 2024-09-20 10:00:34
