@@ -14,30 +14,33 @@ CREATE TABLE `sys_menus` (
   `title` varchar(16) DEFAULT '' COMMENT '标题',
   `en` varchar(16) DEFAULT '' COMMENT '英文',
   `ico` varchar(32) DEFAULT '' COMMENT '图标',
-  `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '创建时间',
-  `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
   `sort` tinyint(3) unsigned DEFAULT 0 COMMENT '排序',
   `url` varchar(32) DEFAULT '' COMMENT '地址',
-  `controller` varchar(32) DEFAULT '',
-  `action` text DEFAULT '',
-  `remark` varchar(128) DEFAULT '',
+  `controller` varchar(32) DEFAULT '' COMMENT '控制器',
+  `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `status` tinyint(1) unsigned DEFAULT 1 COMMENT '状态: 1正常,2禁用',
+  `en_US` varchar(32) DEFAULT '' COMMENT 'English',
+  `zh_CN` varchar(32) DEFAULT '' COMMENT '简体中文',
+  `action` text DEFAULT '' COMMENT '动作菜单',
+  `remark` varchar(128) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统菜单';
 
-INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `ctime`, `utime`, `sort`, `url`, `controller`, `action`, `remark`) VALUES
-(1,	0,	'首页',	'',	'icons icon_home',	0,	0,	0,	'',	'',	'',	''),
-(2,	0,	'网站',	'',	'icons icon_web',	0,	0,	0,	'',	'',	'',	''),
-(3,	0,	'系统',	'',	'icons icon_system',	0,	0,	0,	'',	'',	'',	''),
-(4,	2,	'小程序',	'',	'',	0,	0,	0,	'',	'',	'',	''),
-(5,	3,	'系统管理',	'',	'',	0,	0,	0,	'',	'',	'',	''),
-(6,	3,	'基础数据',	'',	'',	0,	0,	0,	'',	'',	'',	''),
-(7,	5,	'网站目录',	'WangZhanMuLu',	'',	0,	0,	0,	'/SysFileManage',	'/admin/sys_file',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"新建文件夹\",\"action\":\"mkdir\",\"perm\":2},{\"name\":\"重命名\",\"action\":\"rename\",\"perm\":4},{\"name\":\"上传\",\"action\":\"upload\",\"perm\":8},{\"name\":\"下载\",\"action\":\"down\",\"perm\":16},{\"name\":\"删除\",\"action\":\"remove\",\"perm\":32}]',	''),
-(8,	5,	'系统用户',	'XiTongZhangHu',	'',	0,	0,	0,	'/SysUser',	'/admin/sys_user',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
-(9,	5,	'系统角色',	'XiTongJiaoSe',	'',	0,	0,	0,	'/SysRole',	'/admin/sys_role',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
-(10,	5,	'系统菜单',	'XiTongCaiDan',	'',	0,	0,	0,	'/SysMenus',	'/admin/sys_menus',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8}]',	''),
-(11,	6,	'静态页面',	'JingTaiYeMian',	'',	0,	1726734443,	0,	'/WebHtml',	'/admin/web_html',	'[{\"name\":\"\\u5217\\u8868\",\"action\":\"list\",\"perm\":1},{\"name\":\"\\u66f4\\u65b0\",\"action\":\"save\",\"perm\":2},{\"name\":\"\\u5220\\u9664\",\"action\":\"del\",\"perm\":8},{\"name\":\"\\u5bfc\\u51fa\",\"action\":\"export\",\"perm\":16}]',	''),
-(12,	4,	'轮播图',	'LunBoTu',	'',	0,	0,	0,	'/MBanner',	'/admin/m_banner',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]',	''),
-(13,	4,	'意见反馈',	'YiJianFanKui',	'',	0,	0,	0,	'/MSuggest',	'/admin/m_suggest',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"删除\",\"action\":\"del\",\"perm\":2}]',	'');
+INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `sort`, `url`, `controller`, `ctime`, `utime`, `status`, `en_US`, `zh_CN`, `action`, `remark`) VALUES
+(1,	0,	'首页',	'',	'icons icon_home',	0,	'',	'',	0,	0,	1,	'Home',	'首页',	'',	''),
+(2,	0,	'网站',	'',	'icons icon_web',	0,	'',	'',	0,	0,	1,	'Web',	'网站',	'',	''),
+(3,	0,	'系统',	'',	'icons icon_system',	0,	'',	'',	0,	0,	1,	'System',	'系统',	'',	''),
+(4,	2,	'手机版',	'',	'',	0,	'',	'',	0,	0,	1,	'Mobile Phone',	'手机版',	'',	''),
+(5,	3,	'系统管理',	'',	'',	0,	'',	'',	0,	0,	1,	'System Management',	'系统管理',	'',	''),
+(6,	3,	'基础数据',	'',	'',	0,	'',	'',	0,	0,	1,	'Basic Data',	'基础数据',	'',	''),
+(7,	5,	'网站目录',	'WangZhanMuLu',	'',	0,	'/SysFileManage',	'/admin/sys_file',	0,	0,	1,	'Web File',	'网站目录',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"新建文件夹\",\"action\":\"mkdir\",\"perm\":2},{\"name\":\"重命名\",\"action\":\"rename\",\"perm\":4},{\"name\":\"上传\",\"action\":\"upload\",\"perm\":8},{\"name\":\"下载\",\"action\":\"down\",\"perm\":16},{\"name\":\"删除\",\"action\":\"remove\",\"perm\":32}]',	''),
+(8,	5,	'系统用户',	'XiTongZhangHu',	'',	0,	'/SysUser',	'/admin/sys_user',	0,	0,	1,	'Users',	'系统用户',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
+(9,	5,	'系统角色',	'XiTongJiaoSe',	'',	0,	'/SysRole',	'/admin/sys_role',	0,	0,	1,	'Role',	'系统角色',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
+(10,	5,	'系统菜单',	'XiTongCaiDan',	'',	0,	'/SysMenus',	'/admin/sys_menus',	0,	0,	1,	'Menus',	'系统菜单',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8}]',	''),
+(11,	6,	'静态页面',	'JingTaiYeMian',	'',	0,	'/WebHtml',	'/admin/web_html',	0,	1726734443,	1,	'WebHtml',	'静态页面',	'[{\"name\":\"\\u5217\\u8868\",\"action\":\"list\",\"perm\":1},{\"name\":\"\\u66f4\\u65b0\",\"action\":\"save\",\"perm\":2},{\"name\":\"\\u5220\\u9664\",\"action\":\"del\",\"perm\":8},{\"name\":\"\\u5bfc\\u51fa\",\"action\":\"export\",\"perm\":16}]',	''),
+(12,	4,	'轮播图',	'LunBoTu',	'',	0,	'/MBanner',	'/admin/m_banner',	0,	0,	1,	'Banner',	'轮播图',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]',	''),
+(13,	4,	'意见反馈',	'YiJianFanKui',	'',	0,	'/MSuggest',	'/admin/m_suggest',	0,	0,	1,	'Suggestion',	'意见反馈',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"删除\",\"action\":\"del\",\"perm\":2}]',	'');
 
 DROP TABLE IF EXISTS `sys_perm`;
 CREATE TABLE `sys_perm` (
@@ -82,7 +85,7 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户帐号';
 
 INSERT INTO `user` (`id`, `uname`, `tel`, `email`, `password`, `status`, `rtime`, `ltime`, `utime`) VALUES
-(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1727056023,	1726734456),
+(1,	'admin',	'',	'klingsoul@163.com',	'8d37796cd6857b5b2d6721b2d25829ee',	1,	0,	1727170591,	1726734456),
 (2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	0,	0,	0,	1726800383);
 
 DROP TABLE IF EXISTS `user_info`;
@@ -140,4 +143,4 @@ CREATE TABLE `web_html` (
 INSERT INTO `web_html` (`id`, `type`, `title`, `name`, `status`, `ctime`, `utime`, `remark`, `content`) VALUES
 (1,	1,	'服务协议',	'm_service',	1,	1726819724,	1726821152,	'手机、小程序',	'<p>服务协议</p>');
 
--- 2024-09-23 01:51:14
+-- 2024-09-24 09:39:04
