@@ -37,7 +37,7 @@ INSERT INTO `sys_menus` (`id`, `fid`, `title`, `en`, `ico`, `sort`, `url`, `cont
 (7,	5,	'网站目录',	'WangZhanMuLu',	'',	0,	'/SysFileManage',	'/admin/sys_file',	0,	0,	1,	'Web File',	'网站目录',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"新建文件夹\",\"action\":\"mkdir\",\"perm\":2},{\"name\":\"重命名\",\"action\":\"rename\",\"perm\":4},{\"name\":\"上传\",\"action\":\"upload\",\"perm\":8},{\"name\":\"下载\",\"action\":\"down\",\"perm\":16},{\"name\":\"删除\",\"action\":\"remove\",\"perm\":32}]',	''),
 (8,	5,	'系统用户',	'XiTongZhangHu',	'',	0,	'/SysUser',	'/admin/sys_user',	0,	0,	1,	'Users',	'系统用户',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
 (9,	5,	'系统角色',	'XiTongJiaoSe',	'',	0,	'/SysRole',	'/admin/sys_role',	0,	0,	1,	'Role',	'系统角色',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8},{\"name\":\"权限\",\"action\":\"perm\",\"perm\":16}]',	''),
-(10,	5,	'系统菜单',	'XiTongCaiDan',	'',	0,	'/SysMenus',	'/admin/sys_menus',	0,	0,	1,	'Menus',	'系统菜单',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"更新\",\"action\":\"save\",\"perm\":2},{\"name\":\"删除\",\"action\":\"del\",\"perm\":4},{\"name\":\"导出\",\"action\":\"export\",\"perm\":8}]',	''),
+(10,	5,	'系统菜单',	'XiTongCaiDan',	'',	0,	'/SysMenus',	'/admin/sys_menus',	0,	1727405905,	1,	'Menus',	'系统菜单',	'[{\"name\":\"\\u5217\\u8868\",\"action\":\"list\",\"perm\":1},{\"name\":\"\\u66f4\\u65b0\",\"action\":\"save\",\"perm\":2},{\"name\":\"\\u5220\\u9664\",\"action\":\"del\",\"perm\":4},{\"name\":\"\\u5bfc\\u51fa\",\"action\":\"export\",\"perm\":8}]',	''),
 (11,	6,	'静态页面',	'JingTaiYeMian',	'',	0,	'/WebHtml',	'/admin/web_html',	0,	1726734443,	1,	'WebHtml',	'静态页面',	'[{\"name\":\"\\u5217\\u8868\",\"action\":\"list\",\"perm\":1},{\"name\":\"\\u66f4\\u65b0\",\"action\":\"save\",\"perm\":2},{\"name\":\"\\u5220\\u9664\",\"action\":\"del\",\"perm\":8},{\"name\":\"\\u5bfc\\u51fa\",\"action\":\"export\",\"perm\":16}]',	''),
 (12,	4,	'轮播图',	'LunBoTu',	'',	0,	'/MBanner',	'/admin/m_banner',	0,	0,	1,	'Banner',	'轮播图',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"搜索\",\"action\":\"sea\",\"perm\":2},{\"name\":\"添加\",\"action\":\"add\",\"perm\":4},{\"name\":\"编辑\",\"action\":\"edit\",\"perm\":8},{\"name\":\"删除\",\"action\":\"del\",\"perm\":16},{\"name\":\"状态\",\"action\":\"state\",\"perm\":32}]',	''),
 (13,	4,	'意见反馈',	'YiJianFanKui',	'',	0,	'/MSuggest',	'/admin/m_suggest',	0,	0,	1,	'Suggestion',	'意见反馈',	'[{\"name\":\"列表\",\"action\":\"list\",\"perm\":1},{\"name\":\"删除\",\"action\":\"del\",\"perm\":2}]',	'');
@@ -53,7 +53,7 @@ CREATE TABLE `sys_perm` (
 
 INSERT INTO `sys_perm` (`uid`, `utime`, `role`, `perm`) VALUES
 (1,	1726734456,	'',	'1:0 2:0 3:0 4:0 5:0 6:0 7:63 8:31 9:31 10:15 11:27 12:63 13:3'),
-(2,	1726800383,	'1',	'');
+(2,	1728106172,	'1',	'');
 
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
@@ -85,8 +85,8 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户帐号';
 
 INSERT INTO `user` (`id`, `uname`, `tel`, `email`, `password`, `status`, `rtime`, `ltime`, `utime`) VALUES
-(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1727170591,	1726734456),
-(2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	0,	0,	0,	1726800383);
+(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1728610672,	1726734456),
+(2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1728527607,	1728106172);
 
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
@@ -106,25 +106,31 @@ CREATE TABLE `user_info` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户信息';
 
 INSERT INTO `user_info` (`uid`, `type`, `utime`, `nickname`, `department`, `position`, `name`, `gender`, `birthday`, `img`, `signature`, `remark`) VALUES
-(1,	1,	1726734456,	'WebMIS',	'信息部',	'系统开发',	'管理员',	'男',	0,	'',	'',	''),
-(2,	0,	1726800383,	'User',	'信息部',	'测试',	'会员',	'男',	0,	'',	'',	'');
+(1,	1,	1726734456,	'WebMIS',	'信息部',	'系统开发',	'管理员',	'男',	1727971200,	'',	'',	''),
+(2,	0,	1728106172,	'User',	'信息部',	'测试',	'会员',	'男',	0,	'',	'',	'');
 
 DROP TABLE IF EXISTS `user_msg`;
 CREATE TABLE `user_msg` (
   `id` bigint(19) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `type` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0消息,1其他',
-  `gid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '0普通消息 1系统消息',
+  `gid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '0普通消息,1系统消息',
+  `format` tinyint(1) unsigned NOT NULL DEFAULT 0 COMMENT '0文本,1JSON',
   `uid` varchar(18) NOT NULL DEFAULT '0' COMMENT 'UID',
   `fid` varchar(16) NOT NULL DEFAULT '0' COMMENT '发送者ID',
   `ctime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '发布时间',
   `utime` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '更新时间',
   `is_new` text NOT NULL DEFAULT '' COMMENT '标记阅读',
   `is_del` text NOT NULL DEFAULT '' COMMENT '标记删除',
-  `title` varchar(16) NOT NULL DEFAULT '' COMMENT '标题',
   `content` varchar(300) NOT NULL DEFAULT '' COMMENT '内容',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户消息';
 
+INSERT INTO `user_msg` (`id`, `gid`, `format`, `uid`, `fid`, `ctime`, `utime`, `is_new`, `is_del`, `content`) VALUES
+(1,	1,	0,	'1',	'0',	1728373667,	1728531396,	'[\"1\"]',	'',	'123456'),
+(2,	1,	0,	'1',	'0',	1728373750,	1728531396,	'[\"1\"]',	'',	'123456'),
+(3,	1,	0,	'1',	'0',	1728373898,	1728531396,	'[\"1\"]',	'',	'123'),
+(4,	0,	0,	'1',	'2',	1728378552,	1728529848,	'[\"2\",\"1\"]',	'',	'你好'),
+(5,	0,	0,	'2',	'1',	1728378576,	1728540412,	'[\"1\",\"2\"]',	'',	'你好！'),
+(6,	0,	0,	'2',	'1',	1728446409,	1728540412,	'[\"1\",\"2\"]',	'',	'很高兴为您服务');
 
 DROP TABLE IF EXISTS `web_html`;
 CREATE TABLE `web_html` (
@@ -143,4 +149,4 @@ CREATE TABLE `web_html` (
 INSERT INTO `web_html` (`id`, `type`, `title`, `name`, `status`, `ctime`, `utime`, `remark`, `content`) VALUES
 (1,	1,	'服务协议',	'm_service',	1,	1726819724,	1726821152,	'手机、小程序',	'<p>服务协议</p>');
 
--- 2024-09-24 09:39:04
+-- 2024-10-11 09:58:44
