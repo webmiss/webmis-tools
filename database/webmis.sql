@@ -85,8 +85,8 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户帐号';
 
 INSERT INTO `user` (`id`, `uname`, `tel`, `email`, `password`, `status`, `rtime`, `ltime`, `utime`) VALUES
-(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1728610672,	1726734456),
-(2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1728527607,	1728106172);
+(1,	'admin',	'',	'klingsoul@163.com',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1729065402,	1726734456),
+(2,	'',	'15000000000',	'',	'e10adc3949ba59abbe56e057f20f883e',	1,	0,	1729067210,	1728106172);
 
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
@@ -124,13 +124,6 @@ CREATE TABLE `user_msg` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户消息';
 
-INSERT INTO `user_msg` (`id`, `gid`, `format`, `uid`, `fid`, `ctime`, `utime`, `is_new`, `is_del`, `content`) VALUES
-(1,	1,	0,	'1',	'0',	1728373667,	1728531396,	'[\"1\"]',	'',	'123456'),
-(2,	1,	0,	'1',	'0',	1728373750,	1728531396,	'[\"1\"]',	'',	'123456'),
-(3,	1,	0,	'1',	'0',	1728373898,	1728531396,	'[\"1\"]',	'',	'123'),
-(4,	0,	0,	'1',	'2',	1728378552,	1728529848,	'[\"2\",\"1\"]',	'',	'你好'),
-(5,	0,	0,	'2',	'1',	1728378576,	1728540412,	'[\"1\",\"2\"]',	'',	'你好！'),
-(6,	0,	0,	'2',	'1',	1728446409,	1728540412,	'[\"1\",\"2\"]',	'',	'很高兴为您服务');
 
 DROP TABLE IF EXISTS `web_html`;
 CREATE TABLE `web_html` (
@@ -149,4 +142,4 @@ CREATE TABLE `web_html` (
 INSERT INTO `web_html` (`id`, `type`, `title`, `name`, `status`, `ctime`, `utime`, `remark`, `content`) VALUES
 (1,	1,	'服务协议',	'm_service',	1,	1726819724,	1726821152,	'手机、小程序',	'<p>服务协议</p>');
 
--- 2024-10-11 09:58:44
+-- 2024-10-16 09:33:35
