@@ -3,8 +3,8 @@
 # 配置
 s=$1
 dbHost=localhost
-dbUname=root
-dbPasswd=123456
+dbUname=webmis
+dbPasswd=e4b99adec618e653400966be536c45f8
 dbName=webmis
 dbPath=database/$dbName.sql
 dbPathBackup=database/$(date "+%Y-%m-%d_%H:%M:%S").sql
